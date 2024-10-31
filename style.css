@@ -13,5 +13,37 @@ body{
     background-color: grey;
     display: flex;
     justify-content: center;
+    display: inline;
+    flex-direction: column-reverse;
+}
+#input{
+    height: 150px;
+    width: 100%;
+    /* border:2px solid black; */
+    display: flex;
+    justify-content: center;
     align-items: center;
+   
+}
+#input input{
+    height: 40px;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgb(183, 68, 15);
+}
+#button{
+    height: 120px;
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#button button {
+    height: 30px;
+    width: 100px;
+    margin: 5px;
+    border-radius: 20px;
 }
