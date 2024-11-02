@@ -1,35 +1,43 @@
-const display = document.querySelector("#input");
-const rock = document.querySelector('#btn1');
-const paper = document.querySelector('#btn2');
-const scissors = document.querySelector('#btn3');
+const playertext = document.querySelector("#playerbox")
+const computertext = document.querySelector("#computerbox")
+const option = document.querySelectorAll(".btncoice")
+const resulttext = document.querySelector("#result")
+let computer;
+let player ;
 
-const setRock = (e) => {
-   display.innerText = "You choose Rock"
-   display.style.backgroundColor = "red"
-};
-const setPaper = (e)=>{
-   display.textContent = "You choose Paper"
+option.forEach(Element => Element.addEventListener("click" , ()=>{
+  player = Element.textContent;
+  computerchoice()
+  playertext.textContent = player
+  computertext.textContent = computer
+  resulttext.textContent = result()
+
+}))
+function computerchoice(){
+  RandomNum = Math.floor(Math.random()*3)+1
+  switch(RandomNum){
+    case 1:
+       computer = "ROCK"
+       break;
+    case 2 : 
+      computer = "PAPER"
+      break;
+    case 3 :
+      computer = "SCISSOR"
+      break;
+  }
 }
-const setScissors = (e)=>{
-    display.textContent = "You choose scisser"
-
+function result (){
+  if(computer == player){
+    return "It's Draw!"
+  }
+  else if (computer == "ROCK"){
+    return(player =="PAPER")?"YOU WON":"YOU LOST"
+  }
+  else if (computer == "PAPER"){
+    return(player =="SCISSOR")?"YOU WON":"YOU LOST"
+  }
+  else if (computer == "SCISSOR"){
+    return(player =="ROCK")?"YOU WON":"YOU LOST"
+  }
 }
-rock.addEventListener("click", setRock);
-paper.addEventListener("click", setPaper);
-scissors.addEventListener("click", setScissors);
-
-const computerChoice = () => {
-    const choice = ["Rock", "Paper", "Scissors"];
-    const computer = choice[Math.floor(Math.random() * 3)];
-    return computer;
-};
-
-const humanChoice = () => {
-    const choice = prompt("Enter your choice");
-    return choice;
-};
-
-const computer = computerChoice();
-console.log("Computer choice:", computer);
-
-
