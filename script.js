@@ -4,14 +4,22 @@ const option = document.querySelectorAll(".btncoice")
 const resulttext = document.querySelector("#result")
 let computer;
 let player ;
+let resultbox ;
 
 option.forEach(Element => Element.addEventListener("click" , ()=>{
   player = Element.textContent;
   computerchoice()
   playertext.textContent = player
   computertext.textContent = computer
-  resulttext.textContent = result()
-
+  resultbox = result();
+    resulttext.textContent = resultbox;
+    if (resultbox === "YOU WON") {
+      resulttext.style.backgroundColor = "green";
+    } else if (resultbox === "YOU LOST") {
+      resulttext.style.backgroundColor = "red";
+    } else {
+      resulttext.style.backgroundColor = "cyan";
+    }
 }))
 function computerchoice(){
   RandomNum = Math.floor(Math.random()*3)+1
@@ -41,3 +49,4 @@ function result (){
     return(player =="ROCK")?"YOU WON":"YOU LOST"
   }
 }
+resultbox = result();
